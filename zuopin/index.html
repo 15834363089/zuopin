@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body,html{
+            width: 100%;
+        }
+        .zp{
+            text-align: center;
+            font-size: 50px;
+            line-height: 100px;
+        }
+        img{
+            max-width: 1334px;
+            display: block;
+            margin: 0 auto;
+            width: auto;
+        }
+        ul{
+            width: 100%;
+            text-align: center;
+        }
+        span{
+            line-height: 30px;
+            padding: 0 30px;
+            text-align: center;
+        }
+        .dian .active{
+            color: red;
+        }
+        .box{
+            position: relative;
+            max-width: 1334px;
+            margin: 0 auto;
+        }
+        .box li{
+            position: absolute;
+            width: 1334px;
+            top:0;
+            left:0;
+            display: none;
+        }
+        .box .active{
+            z-index: 1;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="zp">
+    作品展示
+</div>
+<ul class="dian">
+    <span class="active">诸天战记</span>
+    <span>吃货喵</span>
+    <span>天汇二手车</span>
+</ul>
+<ul class="box">
+    <li class="active"><img src="img/诸仙.jpg" alt=""></li>
+    <li><img src="img/吃货猫.jpg" alt=""></li>
+    <li><img src="img/天汇.jpg" alt=""></li>
+</ul>
+
+
+</body>
+<script>
+        var dian=document.querySelectorAll(".dian span");
+        var tu=document.querySelectorAll(".box li");
+        dian.forEach(function (ele,index) {
+            ele.onclick=function () {
+               for(var i=0;i<dian.length;i++){
+                   dian[i].classList.remove("active");
+                   tu[i].classList.remove("active");
+               }
+                ele.classList.add("active");
+                tu[index].classList.add("active");
+            };
+        });
+</script>
+</html>
